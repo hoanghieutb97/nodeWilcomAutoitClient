@@ -7,7 +7,7 @@ const { execFile } = require("child_process");
 const os = require("os");
 const querystring = require("querystring");
 
-const socket = io("http://localhost:3999");
+const socket = io("http://192.168.1.220:3999");
 let currentTask = null;
 
 const basePath = path.join(__dirname, "autoit Wilcom");
@@ -71,7 +71,7 @@ socket.on("task", async (task) => {
   }
 });
 
-// ======= Nhận stitch từ AutoIt qua localhost:3458 =======
+// ======= Nhận stitch từ AutoIt qua 192.168.1.220:3458 =======
 http.createServer((req, res) => {
   if (req.method === "POST" && req.url === "/notify") {
     let body = "";
@@ -130,7 +130,7 @@ function sendResult(orderID, stitch) {
   const data = JSON.stringify({ orderID, stitch});
 
   const req = http.request({
-    hostname: "localhost",
+    hostname: "http://192.168.1.220",
     port: 3999,
     path: "/result",
     method: "POST",
@@ -158,7 +158,7 @@ function sendErr(orderID, message) {
   });
 
   const req = http.request({
-    hostname: "http://192.168.1.194",
+    hostname: "http://192.168.1.220",
     port: 3999,
     path: "/runErr", // vẫn gửi về /result
     method: "POST",
