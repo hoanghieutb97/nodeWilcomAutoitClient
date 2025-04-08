@@ -158,7 +158,7 @@ function sendErr(orderID, message) {
   });
 
   const req = http.request({
-    hostname: "localhost",
+    hostname: "http://192.168.1.194",
     port: 3999,
     path: "/runErr", // vẫn gửi về /result
     method: "POST",
