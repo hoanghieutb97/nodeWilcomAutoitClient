@@ -130,7 +130,7 @@ function sendResult(orderID, stitch) {
   const data = JSON.stringify({ orderID, stitch});
 
   const req = http.request({
-    hostname: "http://192.168.1.220",
+    hostname: "192.168.1.220",
     port: 3999,
     path: "/result",
     method: "POST",
@@ -158,7 +158,7 @@ function sendErr(orderID, message) {
   });
 
   const req = http.request({
-    hostname: "http://192.168.1.220",
+    hostname: "192.168.1.220",
     port: 3999,
     path: "/runErr", // vẫn gửi về /result
     method: "POST",

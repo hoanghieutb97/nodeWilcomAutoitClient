@@ -52,7 +52,7 @@ Sleep(300)
 		If Not _WaitForIdleCursor(15000) Then Exit ; nếu quá lâu thì thoát
 		ControlClick("Prepare Bitmap Colors", "", "Button12")
 	Else
-		REQ_errWilcom("Không thấy bảng 'Prepare Bitmap Colors'")
+		REQ_errWilcom("Không thấy bảng Prepare Bitmap Colors")
 	
 		Exit
 	EndIf
@@ -67,7 +67,7 @@ Sleep(300)
 	If WinWaitActive("Smart Design", "", 5) Then
 		ControlClick("Smart Design", "", "Button1")
 	Else
-		REQ_errWilcom("Không thấy bảng 'Smart Design'")
+		REQ_errWilcom("Không thấy bảng Smart Design")
 		Exit
 	EndIf
 
@@ -103,7 +103,7 @@ Sleep(300)
 	; ✅ Đọc số mũi thêu từ file DST
 	Local $hFile = FileOpen($dstPath, 16)
 	If $hFile = -1 Then
-		REQ_errWilcom("khong mo duoc file DST'")
+		REQ_errWilcom("khong mo duoc file DST")
 		Exit
 	EndIf
 
@@ -133,7 +133,7 @@ Func _WaitForIdleCursor($timeoutMs = 15000)
 	Local $timer = TimerInit()
 	While MouseGetCursor() <> 2
 		If TimerDiff($timer) > $timeoutMs Then
-			REQ_errWilcom("qua thoi gian con tro xu ly'")
+			REQ_errWilcom("qua thoi gian con tro xu ly")
 			Return False
 		EndIf
 		Sleep(200)
